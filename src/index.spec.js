@@ -23,7 +23,7 @@ export default {
       $
     `),
   },
-  multiple: {
+  'multiple tests': {
     files: {
       'index.spec.js': endent`
         module.exports = {
@@ -38,6 +38,33 @@ export default {
         index
           . foo
           . bar
+
+
+        2 passing \\(.*?\\)
+      $
+    `),
+  },
+  'multiple suites': {
+    files: {
+      'cli.spec.js': endent`
+        module.exports = {
+          bar: () => {},
+        }
+      `,
+      'index.spec.js': endent`
+        module.exports = {
+          foo: () => {},
+        }
+      `,
+    },
+    regex: new RegExp(endent`
+      ^
+
+        cli
+          . bar
+
+        index
+          . foo
 
 
         2 passing \\(.*?\\)
@@ -156,12 +183,40 @@ export default {
       $
     `),
   },
+  'non-test file': {
+    files: {
+      'before.js': endent`
+        module.exports = {
+          before: () => console.log('foo'),
+        }
+      `,
+      'index.spec.js': endent`
+        module.exports = {
+          bar: () => {},
+          baz: () => {},
+        }
+      `,
+    },
+    args: ['--file', 'before.js'],
+    regex: new RegExp(endent`
+      ^
+
+      foo
+        index
+          . bar
+          . baz
+
+
+        2 passing \\(.*?\\)
+      $
+    `),
+  },
 }
-  |> mapValues(({ files, regex }) => () => withLocalTmpDir(async () => {
+  |> mapValues(({ files, regex, args = [] }) => () => withLocalTmpDir(async () => {
     outputFiles(files) |> await
     const { all } = execa(
       'mocha',
-      ['--require', require.resolve('.'), '--ui', 'exports-auto-describe', '*.spec.js'],
+      ['--require', require.resolve('.'), '--ui', 'exports-auto-describe', ...args, '*.spec.js'],
       { all: true },
     ) |> await
     expect(all).toMatch(regex)
