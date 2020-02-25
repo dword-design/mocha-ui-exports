@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.1...v1.0.2) (2020-02-25)
+
+
+### Bug Fixes
+
+* fix --file import of non-test files ([3659b33](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/3659b336711195ad5457ef55451a14f092784c31))
+
 ## [1.0.1](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.0...v1.0.1) (2020-02-25)
 
 
