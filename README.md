@@ -29,6 +29,29 @@ $ yarn add mocha-ui-exports-auto-describe
 ```
 <!-- /INSTALL -->
 
+## Usage
+
+Structure your tests as usual:
+```
+|-test
+  |-index.test.js
+  |-cli.test.js
+```
+
+Run mocha. The output will contain describe blocks per-file:
+```bash
+$ mocha --require mocha-ui-exports-auto-describe
+
+  index
+    ✓ valid
+    ✓ special case
+  cli
+    ✓ command works
+    ✓ options work
+
+  1 passing
+```
+
 <!-- LICENSE/ -->
 ## License
 
