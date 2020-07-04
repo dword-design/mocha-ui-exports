@@ -1,21 +1,23 @@
-import { forIn, startsWith, endsWith } from '@dword-design/functions'
+import { endsWith, forIn, startsWith } from '@dword-design/functions'
 import Mocha from 'mocha'
 import P from 'path'
 
 const ui = suite => {
   const suites = [suite]
-
   suite.on('require', (obj, file) => {
-    if ((file |> endsWith('.spec.js'))
-      || (file |> endsWith('.test.js'))
-      || (file |> startsWith(P.join(process.cwd(), 'test')))
+    if (
+      (file |> endsWith('.spec.js')) ||
+      (file |> endsWith('.test.js')) ||
+      (file |> startsWith(P.join(process.cwd(), 'test')))
     ) {
-      const describeName = P.basename(file).match(/^(.*?)(\.(spec|test))?\.js$/)[1]
+      const describeName = P.basename(file).match(
+        /^(.*?)(\.(spec|test))?\.js$/
+      )[1]
       obj = {
         [describeName]: obj,
       }
     }
-    let suite
+    let newSuite
     const visit = forIn((value, key) => {
       if (typeof value === 'function') {
         switch (key) {
@@ -38,8 +40,8 @@ const ui = suite => {
           }
         }
       } else {
-        suite = Mocha.Suite.create(suites[0], key)
-        suites.unshift(suite)
+        newSuite = Mocha.Suite.create(suites[0], key)
+        suites.unshift(newSuite)
         visit(value)
         suites.shift()
       }
@@ -47,7 +49,6 @@ const ui = suite => {
     visit(obj)
   })
 }
-
 Mocha.interfaces['exports-auto-describe'] = ui
 
 export default ui

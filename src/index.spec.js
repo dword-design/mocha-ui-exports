@@ -1,33 +1,33 @@
-import withLocalTmpDir from 'with-local-tmp-dir'
+import { endent, mapValues } from '@dword-design/functions'
 import execa from 'execa'
 import outputFiles from 'output-files'
-import { endent, mapValues } from '@dword-design/functions'
+import withLocalTmpDir from 'with-local-tmp-dir'
+
+const runTest = config => () =>
+  withLocalTmpDir(async () => {
+    config = { args: [], ...config }
+    await outputFiles(config.files)
+    const output = await execa(
+      'mocha',
+      [
+        '--require',
+        require.resolve('.'),
+        '--ui',
+        'exports-auto-describe',
+        ...config.args,
+        '*.spec.js',
+      ],
+      { all: true }
+    )
+    expect(output.all).toMatch(config.regex)
+  })
 
 export default {
-  valid: {
+  'after test': {
     files: {
       'index.spec.js': endent`
         module.exports = {
-          foo: () => {},
-        }
-      `,
-    },
-    regex: new RegExp(endent`
-      ^
-
-        index
-          . foo
-
-
-        1 passing \\(.*?\\)
-      $
-    `),
-  },
-  'multiple tests': {
-    files: {
-      'index.spec.js': endent`
-        module.exports = {
-          foo: () => {},
+          after: () => console.log('foo'),
           bar: () => {},
         }
       `,
@@ -36,11 +36,57 @@ export default {
       ^
 
         index
-          . foo
           . bar
+      foo
+
+
+        1 passing \\(.*?\\)
+      $
+    `),
+  },
+  'beforeEach test': {
+    files: {
+      'index.spec.js': endent`
+        module.exports = {
+          beforeEach: () => console.log('foo'),
+          bar: () => {},
+          baz: () => {},
+        }
+      `,
+    },
+    regex: new RegExp(endent`
+      ^
+
+        index
+      foo
+          . bar
+      foo
+          . baz
 
 
         2 passing \\(.*?\\)
+      $
+    `),
+  },
+  describe: {
+    files: {
+      'index.spec.js': endent`
+        module.exports = {
+          foo: {
+            bar: () => {},
+          },
+        }
+      `,
+    },
+    regex: new RegExp(endent`
+      ^
+
+        index
+          foo
+            . bar
+
+
+        1 passing \\(.*?\\)
       $
     `),
   },
@@ -71,95 +117,7 @@ export default {
       $
     `),
   },
-  describe: {
-    files: {
-      'index.spec.js': endent`
-        module.exports = {
-          foo: {
-            bar: () => {},
-          },
-        }
-      `,
-    },
-    regex: new RegExp(endent`
-      ^
-
-        index
-          foo
-            . bar
-
-
-        1 passing \\(.*?\\)
-      $
-    `),
-  },
-  before: {
-    files: {
-      'index.spec.js': endent`
-        module.exports = {
-          before: () => console.log('foo'),
-          bar: () => {},
-        }
-      `,
-    },
-    regex: new RegExp(endent`
-      ^
-
-        index
-      foo
-          . bar
-
-
-        1 passing \\(.*?\\)
-      $
-    `),
-  },
-  after: {
-    files: {
-      'index.spec.js': endent`
-        module.exports = {
-          after: () => console.log('foo'),
-          bar: () => {},
-        }
-      `,
-    },
-    regex: new RegExp(endent`
-      ^
-
-        index
-          . bar
-      foo
-
-
-        1 passing \\(.*?\\)
-      $
-    `),
-  },
-  beforeEach: {
-    files: {
-      'index.spec.js': endent`
-        module.exports = {
-          beforeEach: () => console.log('foo'),
-          bar: () => {},
-          baz: () => {},
-        }
-      `,
-    },
-    regex: new RegExp(endent`
-      ^
-
-        index
-      foo
-          . bar
-      foo
-          . baz
-
-
-        2 passing \\(.*?\\)
-      $
-    `),
-  },
-  afterEach: {
+  'multiple tests': {
     files: {
       'index.spec.js': endent`
         module.exports = {
@@ -184,6 +142,7 @@ export default {
     `),
   },
   'non-test file': {
+    args: ['--file', 'before.js'],
     files: {
       'before.js': endent`
         module.exports = {
@@ -197,7 +156,6 @@ export default {
         }
       `,
     },
-    args: ['--file', 'before.js'],
     regex: new RegExp(endent`
       ^
 
@@ -211,13 +169,23 @@ export default {
       $
     `),
   },
-}
-  |> mapValues(({ files, regex, args = [] }) => () => withLocalTmpDir(async () => {
-    outputFiles(files) |> await
-    const { all } = execa(
-      'mocha',
-      ['--require', require.resolve('.'), '--ui', 'exports-auto-describe', ...args, '*.spec.js'],
-      { all: true },
-    ) |> await
-    expect(all).toMatch(regex)
-  }))
+  valid: {
+    files: {
+      'index.spec.js': endent`
+        module.exports = {
+          foo: () => {},
+        }
+      `,
+    },
+    regex: new RegExp(endent`
+      ^
+
+        index
+          . foo
+
+
+        1 passing \\(.*?\\)
+      $
+    `),
+  },
+} |> mapValues(runTest)
