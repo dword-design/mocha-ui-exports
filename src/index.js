@@ -4,13 +4,14 @@ import P from 'path'
 
 const ui = suite => {
   const suites = [suite]
-
   suite.on('require', (obj, file) => {
-    const describeName = P.basename(__filename).match(/(.*)(\.(spec|test))?\.js/)[1]
+    const describeName = P.basename(__filename).match(
+      /(.*)(\.(spec|test))?\.js/
+    )[1]
     obj = {
       [describeName]: obj,
     }
-    let suite
+    let newSuite
     const visit = forIn((value, key) => {
       if (typeof value === 'function') {
         switch (key) {
@@ -33,8 +34,8 @@ const ui = suite => {
           }
         }
       } else {
-        suite = Mocha.Suite.create(suites[0], key)
-        suites.unshift(suite)
+        newSuite = Mocha.Suite.create(suites[0], key)
+        suites.unshift(newSuite)
         visit(value)
         suites.shift()
       }
@@ -42,7 +43,6 @@ const ui = suite => {
     visit(obj)
   })
 }
-
 Mocha.interfaces['exports-auto-describe'] = ui
 
 export default ui
