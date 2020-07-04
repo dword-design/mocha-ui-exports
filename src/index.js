@@ -1,15 +1,21 @@
-import { forIn } from '@dword-design/functions'
+import { endsWith, forIn, startsWith } from '@dword-design/functions'
 import Mocha from 'mocha'
 import P from 'path'
 
 const ui = suite => {
   const suites = [suite]
   suite.on('require', (obj, file) => {
-    const describeName = P.basename(__filename).match(
-      /(.*)(\.(spec|test))?\.js/
-    )[1]
-    obj = {
-      [describeName]: obj,
+    if (
+      (file |> endsWith('.spec.js')) ||
+      (file |> endsWith('.test.js')) ||
+      (file |> startsWith(P.join(process.cwd(), 'test')))
+    ) {
+      const describeName = P.basename(file).match(
+        /^(.*?)(\.(spec|test))?\.js$/
+      )[1]
+      obj = {
+        [describeName]: obj,
+      }
     }
     let newSuite
     const visit = forIn((value, key) => {

@@ -5,6 +5,7 @@ import withLocalTmpDir from 'with-local-tmp-dir'
 
 const runTest = config => () =>
   withLocalTmpDir(async () => {
+    config = { args: [], ...config }
     await outputFiles(config.files)
     const output = await execa(
       'mocha',
@@ -13,6 +14,7 @@ const runTest = config => () =>
         require.resolve('.'),
         '--ui',
         'exports-auto-describe',
+        ...config.args,
         '*.spec.js',
       ],
       { all: true }
@@ -36,51 +38,6 @@ export default {
         index
           . bar
       foo
-
-
-        1 passing \\(.*?\\)
-      $
-    `),
-  },
-  'afterEach test': {
-    files: {
-      'index.spec.js': endent`
-        module.exports = {
-          afterEach: () => console.log('foo'),
-          bar: () => {},
-          baz: () => {},
-        }
-      `,
-    },
-    regex: new RegExp(endent`
-      ^
-
-        index
-          . bar
-      foo
-          . baz
-      foo
-
-
-        2 passing \\(.*?\\)
-      $
-    `),
-  },
-  'before test': {
-    files: {
-      'index.spec.js': endent`
-        module.exports = {
-          before: () => console.log('foo'),
-          bar: () => {},
-        }
-      `,
-    },
-    regex: new RegExp(endent`
-      ^
-
-        index
-      foo
-          . bar
 
 
         1 passing \\(.*?\\)
@@ -133,12 +90,40 @@ export default {
       $
     `),
   },
-  multiple: {
+  'multiple suites': {
     files: {
+      'cli.spec.js': endent`
+        module.exports = {
+          bar: () => {},
+        }
+      `,
       'index.spec.js': endent`
         module.exports = {
           foo: () => {},
+        }
+      `,
+    },
+    regex: new RegExp(endent`
+      ^
+
+        cli
+          . bar
+
+        index
+          . foo
+
+
+        2 passing \\(.*?\\)
+      $
+    `),
+  },
+  'multiple tests': {
+    files: {
+      'index.spec.js': endent`
+        module.exports = {
+          afterEach: () => console.log('foo'),
           bar: () => {},
+          baz: () => {},
         }
       `,
     },
@@ -146,8 +131,38 @@ export default {
       ^
 
         index
-          . foo
           . bar
+      foo
+          . baz
+      foo
+
+
+        2 passing \\(.*?\\)
+      $
+    `),
+  },
+  'non-test file': {
+    args: ['--file', 'before.js'],
+    files: {
+      'before.js': endent`
+        module.exports = {
+          before: () => console.log('foo'),
+        }
+      `,
+      'index.spec.js': endent`
+        module.exports = {
+          bar: () => {},
+          baz: () => {},
+        }
+      `,
+    },
+    regex: new RegExp(endent`
+      ^
+
+      foo
+        index
+          . bar
+          . baz
 
 
         2 passing \\(.*?\\)
