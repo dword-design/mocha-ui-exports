@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.3...v1.0.4) (2020-08-26)
+
+
+### Bug Fixes
+
+* build files ([9e139f1](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/9e139f1c1ff14cee5ee94daea11716f8bee4d6dc))
+
 ## [1.0.3](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.2...v1.0.3) (2020-07-04)
 
 
