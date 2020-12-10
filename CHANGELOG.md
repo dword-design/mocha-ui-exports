@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.6...v1.0.7) (2020-12-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency execa to v5 ([2bf24d9](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/2bf24d909f2ce3d39dc1e23a661c7bace63af1bc))
+
 ## [1.0.6](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.5...v1.0.6) (2020-12-10)
 
 
