@@ -1,3 +1,12 @@
+## [1.0.6](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.5...v1.0.6) (2020-12-10)
+
+
+### Bug Fixes
+
+* update generated files ([4604777](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/46047779b16b2f084c37e1da39d607d970b7a34b))
+* update generated files ([2257f45](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/2257f45e0441ea801538e1483c6738e1f02b02b5))
+* **deps:** update dependency mocha to v8 ([00e927d](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/00e927d7861aa29834fad240287e4a37ba0137af))
+
 ## [1.0.5](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.4...v1.0.5) (2020-12-02)
 
 
