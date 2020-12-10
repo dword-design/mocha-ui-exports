@@ -49,6 +49,7 @@ const ui = suite => {
     visit(obj)
   })
 }
+// needed for mocha < v8
 Mocha.interfaces['exports-auto-describe'] = ui
 
 export default ui
