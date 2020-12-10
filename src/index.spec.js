@@ -9,14 +9,7 @@ const runTest = config => () =>
     await outputFiles(config.files)
     const output = await execa(
       'mocha',
-      [
-        '--require',
-        require.resolve('.'),
-        '--ui',
-        'exports-auto-describe',
-        ...config.args,
-        '*.spec.js',
-      ],
+      ['--ui', require.resolve('.'), ...config.args, '*.spec.js'],
       { all: true }
     )
     expect(output.all).toMatch(config.regex)
