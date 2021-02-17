@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.7...v1.0.8) (2021-02-17)
+
+
+### Bug Fixes
+
+* upgrades ([f60e40b](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/f60e40be78aa1c1f4a8eb50742c551972d6a9938))
+
 ## [1.0.7](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.6...v1.0.7) (2020-12-10)
 
 
