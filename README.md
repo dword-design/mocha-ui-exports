@@ -34,7 +34,7 @@
 <!-- /BADGES -->
 
 <!-- DESCRIPTION/ -->
-Like the builtin exports UI but also adds a describe block per-file.
+Like the built-in Mocha exports UI but also adds a describe block per-file.
 <!-- /DESCRIPTION -->
 
 <!-- INSTALL/ -->
