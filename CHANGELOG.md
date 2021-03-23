@@ -1,3 +1,10 @@
+## [1.0.12](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.11...v1.0.12) (2021-03-23)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/functions to v3 ([#14](https://github.com/dword-design/mocha-ui-exports-auto-describe/issues/14)) ([9ec3689](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/9ec3689336eeaea5cc9d670be7685656683a76be))
+
 ## [1.0.11](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.10...v1.0.11) (2021-03-22)
 
 
