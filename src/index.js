@@ -18,6 +18,7 @@ const ui = suite => {
       }
     }
     let newSuite
+
     const visit = currentObj =>
       forEach(currentObj, (value, key) => {
         if (typeof value === 'function') {

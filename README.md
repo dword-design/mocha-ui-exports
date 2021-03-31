@@ -87,7 +87,7 @@ $ mocha --require mocha-ui-exports-auto-describe
 <!-- LICENSE/ -->
 ## Contribute
 
-Are you missing something or want to contribute? Feel free to file an [issue](https://github.com/dword-design/mocha-ui-exports-auto-describe/issues) or [pull request](https://github.com/dword-design/mocha-ui-exports-auto-describe/pulls)! ⚙️
+Are you missing something or want to contribute? Feel free to file an [issue](https://github.com/dword-design/mocha-ui-exports-auto-describe/issues) or a [pull request](https://github.com/dword-design/mocha-ui-exports-auto-describe/pulls)! ⚙️
 
 ## Support
 
