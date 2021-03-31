@@ -1,3 +1,10 @@
+## [1.0.13](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.12...v1.0.13) (2021-03-31)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#15](https://github.com/dword-design/mocha-ui-exports-auto-describe/issues/15)) ([46d2fcc](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/46d2fccb6dc3ff411804a70fcf7d8e7224e88d05))
+
 ## [1.0.12](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.11...v1.0.12) (2021-03-23)
 
 
