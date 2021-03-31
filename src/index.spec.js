@@ -38,6 +38,25 @@ export default {
       $
     `),
   },
+  array: {
+    files: {
+      'index.spec.js': endent`
+        module.exports = [
+          () => {},
+        ]
+      `,
+    },
+    regex: new RegExp(endent`
+      ^
+
+        index
+          . 0
+
+
+        1 passing \\(.*?\\)
+      $
+    `),
+  },
   'beforeEach test': {
     files: {
       'index.spec.js': endent`

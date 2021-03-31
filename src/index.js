@@ -21,6 +21,9 @@ const ui = suite => {
 
     const visit = currentObj =>
       forEach(currentObj, (value, key) => {
+        if (typeof key === 'number') {
+          key = key.toString()
+        }
         if (typeof value === 'function') {
           switch (key) {
             case 'before':
