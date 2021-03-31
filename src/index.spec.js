@@ -7,6 +7,7 @@ const runTest = config => () =>
   withLocalTmpDir(async () => {
     config = { args: [], ...config }
     await outputFiles(config.files)
+
     const output = await execa(
       'mocha',
       ['--ui', require.resolve('.'), ...config.args, '*.spec.js'],
