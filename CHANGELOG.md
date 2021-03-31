@@ -1,3 +1,10 @@
+## [1.0.14](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.13...v1.0.14) (2021-03-31)
+
+
+### Bug Fixes
+
+* allow arrays ([bd751d9](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/bd751d946ab7bf473145725cb6ade1901b28962f))
+
 ## [1.0.13](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.12...v1.0.13) (2021-03-31)
 
 
