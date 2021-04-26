@@ -1,3 +1,10 @@
+## [1.0.16](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.15...v1.0.16) (2021-04-26)
+
+
+### Bug Fixes
+
+* update dependency with-local-tmp-dir to v3 ([#24](https://github.com/dword-design/mocha-ui-exports-auto-describe/issues/24)) ([aaad963](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/aaad963f963e39df120ffdb7e5c65619b91f4c36))
+
 ## [1.0.15](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.14...v1.0.15) (2021-04-12)
 
 
