@@ -1,20 +1,23 @@
 import { endent, mapValues } from '@dword-design/functions'
 import execa from 'execa'
 import outputFiles from 'output-files'
+import unifyMochaOutput from 'unify-mocha-output'
 import withLocalTmpDir from 'with-local-tmp-dir'
 
-const runTest = config => () =>
-  withLocalTmpDir(async () => {
-    config = { args: [], ...config }
-    await outputFiles(config.files)
+const runTest = test =>
+  function () {
+    return withLocalTmpDir(async () => {
+      test = { args: [], ...test }
+      await outputFiles(test.files)
 
-    const output = await execa(
-      'mocha',
-      ['--ui', require.resolve('.'), ...config.args, '*.spec.js'],
-      { all: true }
-    )
-    expect(output.all).toMatch(config.regex)
-  })
+      const output = await execa(
+        'mocha',
+        ['--ui', require.resolve('.'), ...test.args, '*.spec.js'],
+        { all: true }
+      )
+      expect(output.all |> unifyMochaOutput).toMatchSnapshot(this)
+    })
+  }
 
 export default {
   'after test': {
@@ -26,17 +29,6 @@ export default {
         }
       `,
     },
-    regex: new RegExp(endent`
-      ^
-
-        index
-          . bar
-      foo
-
-
-        1 passing \\(.*?\\)
-      $
-    `),
   },
   array: {
     files: {
@@ -46,16 +38,6 @@ export default {
         ]
       `,
     },
-    regex: new RegExp(endent`
-      ^
-
-        index
-          . 0
-
-
-        1 passing \\(.*?\\)
-      $
-    `),
   },
   'beforeEach test': {
     files: {
@@ -67,19 +49,6 @@ export default {
         }
       `,
     },
-    regex: new RegExp(endent`
-      ^
-
-        index
-      foo
-          . bar
-      foo
-          . baz
-
-
-        2 passing \\(.*?\\)
-      $
-    `),
   },
   describe: {
     files: {
@@ -91,17 +60,6 @@ export default {
         }
       `,
     },
-    regex: new RegExp(endent`
-      ^
-
-        index
-          foo
-            . bar
-
-
-        1 passing \\(.*?\\)
-      $
-    `),
   },
   'multiple suites': {
     files: {
@@ -116,19 +74,6 @@ export default {
         }
       `,
     },
-    regex: new RegExp(endent`
-      ^
-
-        cli
-          . bar
-
-        index
-          . foo
-
-
-        2 passing \\(.*?\\)
-      $
-    `),
   },
   'multiple tests': {
     files: {
@@ -140,19 +85,6 @@ export default {
         }
       `,
     },
-    regex: new RegExp(endent`
-      ^
-
-        index
-          . bar
-      foo
-          . baz
-      foo
-
-
-        2 passing \\(.*?\\)
-      $
-    `),
   },
   'non-test file': {
     args: ['--file', 'before.js'],
@@ -169,18 +101,6 @@ export default {
         }
       `,
     },
-    regex: new RegExp(endent`
-      ^
-
-      foo
-        index
-          . bar
-          . baz
-
-
-        2 passing \\(.*?\\)
-      $
-    `),
   },
   valid: {
     files: {
@@ -190,15 +110,5 @@ export default {
         }
       `,
     },
-    regex: new RegExp(endent`
-      ^
-
-        index
-          . foo
-
-
-        1 passing \\(.*?\\)
-      $
-    `),
   },
 } |> mapValues(runTest)

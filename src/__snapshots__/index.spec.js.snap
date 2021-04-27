@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index after test 1`] = `
+"
+
+  index
+    ✓ bar
+foo
+
+
+  1 passing
+"
+`;
+
+exports[`index array 1`] = `
+"
+
+  index
+    ✓ 0
+
+
+  1 passing
+"
+`;
+
+exports[`index beforeEach test 1`] = `
+"
+
+  index
+foo
+    ✓ bar
+foo
+    ✓ baz
+
+
+  2 passing
+"
+`;
+
+exports[`index describe 1`] = `
+"
+
+  index
+    foo
+      ✓ bar
+
+
+  1 passing
+"
+`;
+
+exports[`index multiple suites 1`] = `
+"
+
+  cli
+    ✓ bar
+
+  index
+    ✓ foo
+
+
+  2 passing
+"
+`;
+
+exports[`index multiple tests 1`] = `
+"
+
+  index
+    ✓ bar
+foo
+    ✓ baz
+foo
+
+
+  2 passing
+"
+`;
+
+exports[`index non-test file 1`] = `
+"
+
+foo
+  index
+    ✓ bar
+    ✓ baz
+
+
+  2 passing
+"
+`;
+
+exports[`index valid 1`] = `
+"
+
+  index
+    ✓ foo
+
+
+  1 passing
+"
+`;
