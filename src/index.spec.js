@@ -12,7 +12,7 @@ const runTest = test =>
 
       const output = await execa(
         'mocha',
-        ['--ui', require.resolve('.'), ...test.args, '*.spec.js'],
+        ['--ui', require.resolve('.'), ...test.args, '**/*.spec.js'],
         { all: true }
       )
       expect(output.all |> unifyMochaOutput).toMatchSnapshot(this)
@@ -100,6 +100,23 @@ export default {
           baz: () => {},
         }
       `,
+    },
+  },
+  subdirectory: {
+    files: {
+      sub: {
+        'index.spec.js': endent`
+          module.exports = {
+            foo: () => {},
+            bar: () => {},
+          }
+        `,
+        'other.spec.js': endent`
+          module.exports = {
+            foo: () => {},
+          }
+        `,
+      },
     },
   },
   valid: {

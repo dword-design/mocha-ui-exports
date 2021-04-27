@@ -90,6 +90,23 @@ foo
 "
 `;
 
+exports[`index subdirectory 1`] = `
+"
+
+  sub
+    index
+      ✓ foo
+      ✓ bar
+
+  sub
+    other
+      ✓ foo
+
+
+  3 passing
+"
+`;
+
 exports[`index valid 1`] = `
 "
 

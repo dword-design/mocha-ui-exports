@@ -1,4 +1,11 @@
-import { endsWith, forEach, startsWith } from '@dword-design/functions'
+import {
+  endsWith,
+  forEach,
+  reduce,
+  reverse,
+  split,
+  startsWith,
+} from '@dword-design/functions'
 import Mocha from 'mocha'
 import P from 'path'
 
@@ -13,9 +20,14 @@ const ui = suite => {
       const describeName = P.basename(file).match(
         /^(.*?)(\.(spec|test))?\.js$/
       )[1]
-      obj = {
-        [describeName]: obj,
-      }
+
+      const dir = P.relative(process.cwd(), P.dirname(file))
+
+      const segments = dir ? dir |> split(P.delimiter) : []
+      obj =
+        [...segments, describeName]
+        |> reverse
+        |> reduce((acc, segment) => ({ [segment]: acc }), obj)
     }
     let newSuite
 
