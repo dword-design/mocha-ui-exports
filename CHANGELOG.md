@@ -1,3 +1,10 @@
+## [1.0.17](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.16...v1.0.17) (2021-04-27)
+
+
+### Bug Fixes
+
+* use snapshot testing ([#26](https://github.com/dword-design/mocha-ui-exports-auto-describe/issues/26)) ([d359c9d](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/d359c9d4daff93a3971a6f430586f7183d586da5))
+
 ## [1.0.16](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.15...v1.0.16) (2021-04-26)
 
 
