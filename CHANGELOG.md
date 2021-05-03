@@ -1,3 +1,19 @@
+# [2.0.0](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.17...v2.0.0) (2021-05-03)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/base to v8 ([#28](https://github.com/dword-design/mocha-ui-exports-auto-describe/issues/28)) ([a18ae7e](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/a18ae7e27f1e27388b3bfd0f555e82c54a03af12))
+
+
+### BREAKING CHANGES
+
+* require Node.js >= 12
+
+Co-authored-by: Renovate Bot <bot@renovateapp.com>
+Co-authored-by: Sebastian Landwehr <info@dword-design.de>
+Co-authored-by: GitHub Actions <actions@github.com>
+
 ## [1.0.17](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.16...v1.0.17) (2021-04-27)
 
 

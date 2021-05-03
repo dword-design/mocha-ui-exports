@@ -1,6 +1,6 @@
 {
   "name": "mocha-ui-exports-auto-describe",
-  "version": "1.0.17",
+  "version": "2.0.0",
   "description": "Like the built-in Mocha exports UI but also adds a describe block per-file.",
   "repository": "dword-design/mocha-ui-exports-auto-describe",
   "funding": "https://www.buymeacoffee.com/dword",
