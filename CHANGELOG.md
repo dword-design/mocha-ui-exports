@@ -1,3 +1,11 @@
+## [2.0.1](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v2.0.0...v2.0.1) (2021-05-04)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/functions to v4 ([#29](https://github.com/dword-design/mocha-ui-exports-auto-describe/issues/29)) ([479c6fb](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/479c6fb98462a376347e8d3ad87e2cecd25f989e))
+* update dependency unify-mocha-output to v2 ([#30](https://github.com/dword-design/mocha-ui-exports-auto-describe/issues/30)) ([51587d7](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/51587d7dfc2bd9ef53c4ae9dfda519c65507c252))
+
 # [2.0.0](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v1.0.17...v2.0.0) (2021-05-03)
 
 
