@@ -1,3 +1,10 @@
+## [2.0.5](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v2.0.4...v2.0.5) (2021-06-14)
+
+
+### Bug Fixes
+
+* update config files ([a1e4c5f](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/a1e4c5f32c8f778bf37e42104a910c468f988cc7))
+
 ## [2.0.4](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v2.0.3...v2.0.4) (2021-06-09)
 
 
