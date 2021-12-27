@@ -3,7 +3,7 @@
 <!-- /TITLE -->
 
 <!-- BADGES/ -->
-  <p>
+<p>
     <a href="https://npmjs.org/package/mocha-ui-exports-auto-describe">
       <img
         src="https://img.shields.io/npm/v/mocha-ui-exports-auto-describe.svg"
