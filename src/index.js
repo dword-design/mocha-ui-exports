@@ -11,7 +11,7 @@ const ui = suite => {
       (file |> startsWith(P.join(process.cwd(), 'test')))
     ) {
       const describeName = P.basename(file).match(
-        /^(.*?)(\.(spec|test))?\.js$/
+        /^(.*?)(\.(spec|test))?\.js$/,
       )[1]
       obj = {
         [describeName]: obj,
