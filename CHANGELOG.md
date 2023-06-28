@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v2.0.10...v3.0.0) (2023-06-28)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#84](https://github.com/dword-design/mocha-ui-exports-auto-describe/issues/84)) ([1677c04](https://github.com/dword-design/mocha-ui-exports-auto-describe/commit/1677c0407f96c7facb74dab1469f2b5d2dd19e04))
+
+
+### BREAKING CHANGES
+
+* drop node 12 and 14, esm
+
 ## [2.0.10](https://github.com/dword-design/mocha-ui-exports-auto-describe/compare/v2.0.9...v2.0.10) (2022-01-12)
 
 
