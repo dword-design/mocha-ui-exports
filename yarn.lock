@@ -9317,9 +9317,9 @@ unicode-property-aliases-ecmascript@^2.0.0:
   integrity sha512-5Zfuy9q/DFr4tfO7ZPeVXb1aPoeQSdeFMLpYuFebehDAhbuevLs5yxSZmIFN1tP5F9Wl4IpJrYojg85/zgyZHQ==
 
 unify-mocha-output@^2.0.0:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/unify-mocha-output/-/unify-mocha-output-2.0.7.tgz#1a90d24858193bc88565773454b177384677c937"
-  integrity sha512-AL+Ydklz8s7fmpUT3mAJ9jVSGlvDrD0yeDmt1QXOE7oPMiCXMmI2CU3ED6Bo44VJ/iS7kRs6YBToIcNot4k5fA==
+  version "2.0.22"
+  resolved "https://registry.yarnpkg.com/unify-mocha-output/-/unify-mocha-output-2.0.22.tgz#d23cd641a8d9b372596e6e1533561aa657fa0603"
+  integrity sha512-4q7CB/3p68QeTOcKhW8prPwXcOFeweXtFhXMqrulXUaNUyxbn3TVYRzK4qKbM4kogqry7ea5iOTKv4PIc62ORg==
   dependencies:
     "@dword-design/functions" "^4.0.0"
 
