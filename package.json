@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@dword-design/functions": "^5.0.22",
-    "jiti": "^1.18.2",
+    "jiti": "^2.0.0",
     "mocha": "^10.2.0"
   },
   "devDependencies": {
